@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".Puzzle1">
+
+    <LinearLayout
+        android:id="@+id/llMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <TextView
+            android:id="@+id/donald"
+            android:fontFamily="monospace"
+            android:gravity="center"
+            android:textColor="@color/text"
+            android:textSize="60sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/donald" />
+
+        <TextView
+            android:id="@+id/gerald"
+            android:fontFamily="monospace"
+            android:gravity="center"
+            android:textColor="@color/text"
+            android:textSize="60sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/gerald" />
+
+        <View
+            android:layout_width="match_parent"
+            android:background="@color/text"
+            android:layout_height="2sp"
+            tools:ignore="SmallSp" />
+
+        <TextView
+            android:id="@+id/ronald"
+            android:fontFamily="monospace"
+            android:gravity="center"
+            android:textColor="@color/text"
+            android:textSize="60sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ronald" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/mainLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/llMain">
+
+        <LinearLayout
+            android:id="@+id/donaldLayout"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/etn5"
+                android:layout_width="260dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/hint"
+                android:ems="10"
+                android:maxLength="1"
+                android:inputType="number"
+                android:textColor="@color/textMain"
+                android:textSize="60sp" />
+
+            <EditText
+                android:id="@+id/etn2"
+                android:layout_width="260dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:maxLength="1"
+                android:inputType="number"
+                android:textColor="@color/textMain"
+                android:textSize="60sp" />
+
+            <EditText
+                android:id="@+id/etn6"
+                android:layout_width="260dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:maxLength="1"
+                android:inputType="number"
+                android:textColor="@color/textMain"
+                android:textSize="60sp" />
+
+            <EditText
+                android:id="@+id/etn4"
+                android:layout_width="260dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:maxLength="1"
+                android:inputType="number"
+                android:textColor="@color/textMain"
+                android:textSize="60sp" />
+
+            <EditText
+                android:id="@+id/etn8"
+                android:layout_width="260dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:maxLength="1"
+                android:inputType="number"
+                android:textColor="@color/textMain"
+                android:textSize="60sp" />
+
+            <EditText
+                android:id="@id/etn5"
+                android:layout_width="260dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/hint"
+                android:maxLength="1"
+                android:inputType="number"
+                android:textColor="@color/textMain"
+                android:textSize="60sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/geraldLayout"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/etn1"
+                android:layout_width="260dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:maxLength="1"
+                android:inputType="number"
+                android:textColor="@color/textMain"
+                android:textSize="60sp" />
+
+            <EditText
+                android:id="@+id/etn9"
+                android:layout_width="260dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:maxLength="1"
+                android:inputType="number"
+                android:textColor="@color/textMain"
+                android:textSize="60sp" />
+
+            <EditText
+                android:id="@+id/etn7"
+                android:layout_width="260dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:maxLength="1"
+                android:inputType="number"
+                android:textColor="@color/textMain"
+                android:textSize="60sp" />
+
+            <EditText
+                android:id="@id/etn4"
+                android:layout_width="260dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:maxLength="1"
+                android:inputType="number"
+                android:textColor="@color/textMain"
+                android:textSize="60sp" />
+
+            <EditText
+                android:id="@id/etn8"
+                android:layout_width="260dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:maxLength="1"
+                android:inputType="number"
+                android:textColor="@color/textMain"
+                android:textSize="60sp" />
+
+            <EditText
+                android:id="@id/etn5"
+                android:layout_width="260dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/hint"
+                android:ems="10"
+                android:maxLength="1"
+                android:inputType="number"
+                android:textColor="@color/textMain"
+                android:textSize="60sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2sp"
+            android:background="@color/text"
+            tools:ignore="SmallSp" />
+
+        <LinearLayout
+            android:id="@+id/ronaldLayout"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@id/etn7"
+                android:layout_width="260dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:maxLength="1"
+                android:inputType="number"
+                android:textColor="@color/textMain"
+                android:textSize="60sp" />
+
+            <EditText
+                android:id="@id/etn2"
+                android:layout_width="260dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:maxLength="1"
+                android:inputType="number"
+                android:textColor="@color/textMain"
+                android:textSize="60sp" />
+
+            <EditText
+                android:id="@+id/etn3"
+                android:layout_width="260dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:maxLength="1"
+                android:inputType="number"
+                android:textColor="@color/textMain"
+                android:textSize="60sp" />
+
+            <EditText
+                android:id="@id/etn9"
+                android:layout_width="260dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:maxLength="1"
+                android:inputType="number"
+                android:textColor="@color/textMain"
+                android:textSize="60sp" />
+
+            <EditText
+                android:id="@id/etn7"
+                android:layout_width="260dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:maxLength="1"
+                android:inputType="number"
+                android:textColor="@color/textMain"
+                android:textSize="60sp" />
+
+            <EditText
+                android:id="@+id/etn0"
+                android:layout_width="260dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:maxLength="1"
+                android:inputType="number"
+                android:textColor="@color/textMain"
+                android:textSize="60sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/ivPlus1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/llMain"
+        app:layout_constraintEnd_toStartOf="@+id/llMain"
+        app:layout_constraintTop_toTopOf="@+id/llMain"
+        app:layout_constraintVertical_bias="0.32"
+        app:srcCompat="@drawable/ic_baseline_plus_24" />
+
+    <ImageView
+        android:id="@+id/ivPlus2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/mainLayout"
+        app:layout_constraintEnd_toStartOf="@+id/mainLayout"
+        app:layout_constraintTop_toTopOf="@+id/mainLayout"
+        app:layout_constraintVertical_bias="0.32"
+        app:srcCompat="@drawable/ic_baseline_plus_24"/>
+
+    <Button
+        android:id="@+id/btn_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_check"
+        android:onClick="checkResult"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainLayout" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
