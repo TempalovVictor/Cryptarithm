@@ -1,12 +1,21 @@
 <resources>
     <string name="app_name">Cryptarithm</string>
-    <string name="pazzle_1">DONALD + GERALD = \n ROBERT</string>
-    <string name="pazzle_2">SEND + MORE = \n MONEY</string>
-    <string name="pazzle_3">WWW + DOWN = \n ERROR</string>
+    <string name="pazzle_1">DONALD + GERALD =\nROBERT</string>
+    <string name="pazzle_2">SEND + MORE =\nMONEY</string>
+    <string name="pazzle_3">WWW + DOWN =\nERROR</string>
     <string name="choose">Select Cryptarithm</string>
     <string name="donald">DONALD</string>
     <string name="gerald">GERALD</string>
     <string name="ronald">ROBERT</string>
     <string name="btn_check">CHECK</string>
     <string name="hint">5</string>
+    <string name="btn_clear">CLEAR</string>
+
+    <string name="send">SEND</string>
+    <string name="more">MORE</string>
+    <string name="money">MONEY</string>
+
+    <string name="www">WWW</string>
+    <string name="down">DOWN</string>
+    <string name="error">ERROR</string>
 </resources>
