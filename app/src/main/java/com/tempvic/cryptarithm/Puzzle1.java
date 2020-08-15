@@ -3,16 +3,91 @@ package com.tempvic.cryptarithm;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Locale;
+import java.util.Random;
+
 public class Puzzle1 extends AppCompatActivity {
+
+    private int seconds = 0;
+    private boolean running;
+    private boolean wasRunning;
+    private boolean isTimerOn = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_puzzle1);
+
+        if (savedInstanceState != null) {
+            seconds = savedInstanceState.getInt("seconds");
+            running = savedInstanceState.getBoolean("running");
+            wasRunning = savedInstanceState.getBoolean("wasRunning");
+        }
+        runTimer();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (wasRunning) {
+            running = true;
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        wasRunning = running;
+        running = false;
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        savedInstanceState.putInt("seconds", seconds);
+        savedInstanceState.putBoolean("running", running);
+        savedInstanceState.putBoolean("wasRunning", wasRunning);
+    }
+
+    public void onClickStartPause(View view) {
+        if (!isTimerOn) {
+            running = true;
+            isTimerOn = true;
+        } else {
+            running = false;
+            isTimerOn = false;
+        }
+    }
+
+    public void onClickReset(View view) {
+        running = false;
+        seconds = 0;
+    }
+
+    private void runTimer() {
+        final TextView timeView = (TextView) findViewById(R.id.time_view);
+        final Handler handler = new Handler();
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                int hours = seconds / 3600;
+                int minutes = (seconds % 3600) / 60;
+                int secs = seconds % 60;
+                String time = String.format(Locale.getDefault(),
+                        "%d:%02d:%02d", hours, minutes, secs);
+                timeView.setText(time);
+                if (running) {
+                    seconds++;
+                }
+                handler.postDelayed(this, 1000);
+            }
+        });
     }
 
     public void checkResult(View view) {
@@ -23,24 +98,24 @@ public class Puzzle1 extends AppCompatActivity {
 
         int n1, n2, n3, n4, n5, n6, n7, n8, n9, n10, n11, n12, n13, n14, n15, n16, n17, n18;
 
-        EditText et1 = (EditText) findViewById(R.id.etn1_5);
-        EditText et2 = (EditText) findViewById(R.id.etn2_2);
-        EditText et3 = (EditText) findViewById(R.id.etn3_6);
-        EditText et4 = (EditText) findViewById(R.id.etn4_4);
-        EditText et5 = (EditText) findViewById(R.id.etn5_8);
-        EditText et6 = (EditText) findViewById(R.id.etn6_5);
-        EditText et7 = (EditText) findViewById(R.id.etn7_1);
-        EditText et8 = (EditText) findViewById(R.id.etn8_9);
-        EditText et9 = (EditText) findViewById(R.id.etn9_7);
-        EditText et10 = (EditText) findViewById(R.id.etn10_4);
-        EditText et11 = (EditText) findViewById(R.id.etn11_8);
-        EditText et12 = (EditText) findViewById(R.id.etn12_5);
-        EditText et13 = (EditText) findViewById(R.id.etn13_7);
-        EditText et14 = (EditText) findViewById(R.id.etn14_2);
-        EditText et15 = (EditText) findViewById(R.id.etn15_3);
-        EditText et16 = (EditText) findViewById(R.id.etn16_9);
-        EditText et17 = (EditText) findViewById(R.id.etn17_7);
-        EditText et18 = (EditText) findViewById(R.id.etn18_0);
+        EditText et1 = findViewById(R.id.etn1_5);
+        EditText et2 = findViewById(R.id.etn2_2);
+        EditText et3 = findViewById(R.id.etn3_6);
+        EditText et4 = findViewById(R.id.etn4_4);
+        EditText et5 = findViewById(R.id.etn5_8);
+        EditText et6 = findViewById(R.id.etn6_5);
+        EditText et7 = findViewById(R.id.etn7_1);
+        EditText et8 = findViewById(R.id.etn8_9);
+        EditText et9 = findViewById(R.id.etn9_7);
+        EditText et10 = findViewById(R.id.etn10_4);
+        EditText et11 = findViewById(R.id.etn11_8);
+        EditText et12 = findViewById(R.id.etn12_5);
+        EditText et13 = findViewById(R.id.etn13_7);
+        EditText et14 = findViewById(R.id.etn14_2);
+        EditText et15 = findViewById(R.id.etn15_3);
+        EditText et16 = findViewById(R.id.etn16_9);
+        EditText et17 = findViewById(R.id.etn17_7);
+        EditText et18 = findViewById(R.id.etn18_0);
 
         n1 = (et1.getText() == null || et1.getText().toString().equals("")) ? 0 : Integer.parseInt(et1.getText().toString());
         n2 = (et2.getText() == null || et2.getText().toString().equals("")) ? 0 : Integer.parseInt(et2.getText().toString());
@@ -95,24 +170,24 @@ public class Puzzle1 extends AppCompatActivity {
 
     public void clearNumbers(View view) {
 
-        EditText et1 = (EditText) findViewById(R.id.etn1_5);
-        EditText et2 = (EditText) findViewById(R.id.etn2_2);
-        EditText et3 = (EditText) findViewById(R.id.etn3_6);
-        EditText et4 = (EditText) findViewById(R.id.etn4_4);
-        EditText et5 = (EditText) findViewById(R.id.etn5_8);
-        EditText et6 = (EditText) findViewById(R.id.etn6_5);
-        EditText et7 = (EditText) findViewById(R.id.etn7_1);
-        EditText et8 = (EditText) findViewById(R.id.etn8_9);
-        EditText et9 = (EditText) findViewById(R.id.etn9_7);
-        EditText et10 = (EditText) findViewById(R.id.etn10_4);
-        EditText et11 = (EditText) findViewById(R.id.etn11_8);
-        EditText et12 = (EditText) findViewById(R.id.etn12_5);
-        EditText et13 = (EditText) findViewById(R.id.etn13_7);
-        EditText et14 = (EditText) findViewById(R.id.etn14_2);
-        EditText et15 = (EditText) findViewById(R.id.etn15_3);
-        EditText et16 = (EditText) findViewById(R.id.etn16_9);
-        EditText et17 = (EditText) findViewById(R.id.etn17_7);
-        EditText et18 = (EditText) findViewById(R.id.etn18_0);
+        EditText et1 = findViewById(R.id.etn1_5);
+        EditText et2 = findViewById(R.id.etn2_2);
+        EditText et3 = findViewById(R.id.etn3_6);
+        EditText et4 = findViewById(R.id.etn4_4);
+        EditText et5 = findViewById(R.id.etn5_8);
+        EditText et6 = findViewById(R.id.etn6_5);
+        EditText et7 = findViewById(R.id.etn7_1);
+        EditText et8 = findViewById(R.id.etn8_9);
+        EditText et9 = findViewById(R.id.etn9_7);
+        EditText et10 = findViewById(R.id.etn10_4);
+        EditText et11 = findViewById(R.id.etn11_8);
+        EditText et12 = findViewById(R.id.etn12_5);
+        EditText et13 = findViewById(R.id.etn13_7);
+        EditText et14 = findViewById(R.id.etn14_2);
+        EditText et15 = findViewById(R.id.etn15_3);
+        EditText et16 = findViewById(R.id.etn16_9);
+        EditText et17 = findViewById(R.id.etn17_7);
+        EditText et18 = findViewById(R.id.etn18_0);
 
         et1.setText(null);
         et2.setText(null);
@@ -132,5 +207,12 @@ public class Puzzle1 extends AppCompatActivity {
         et16.setText(null);
         et17.setText(null);
         et18.setText(null);
+    }
+
+    public void takeHint(View view) {
+        Random random = new Random();
+        int a = random.nextInt();
+        int b = random.nextInt();
+        int c = random.nextInt();
     }
 }

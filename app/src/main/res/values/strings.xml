@@ -18,4 +18,7 @@
     <string name="www">WWW</string>
     <string name="down">DOWN</string>
     <string name="error">ERROR</string>
+
+    <string name="start_stop">Start/Pause</string>
+    <string name="reset">Reset</string>
 </resources>
