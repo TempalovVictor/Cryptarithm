@@ -46,12 +46,11 @@ tools:context=".Puzzle1">
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="@string/hint"
                 android:inputType="number"
                 android:maxLength="1"
+                android:text="@string/five"
                 android:textColor="@color/textMain"
-                android:textColorHint="#F6F6F6"
-                android:textSize="60sp" />
+                android:textSize="60sp"/>
 
             <EditText
                 android:id="@+id/etn2_2"
@@ -103,11 +102,11 @@ tools:context=".Puzzle1">
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="@string/hint"
                 android:inputType="number"
                 android:maxLength="1"
+                android:text="@string/five"
                 android:textColor="@color/textMain"
-                android:textSize="60sp" />
+                android:textSize="60sp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -177,11 +176,11 @@ tools:context=".Puzzle1">
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="@string/hint"
                 android:inputType="number"
                 android:maxLength="1"
+                android:text="@string/five"
                 android:textColor="@color/textMain"
-                android:textSize="60sp" />
+                android:textSize="60sp"/>
         </LinearLayout>
 
         <View
@@ -275,63 +274,16 @@ tools:context=".Puzzle1">
     app:layout_constraintVertical_bias="0.32"
     app:srcCompat="@drawable/ic_baseline_plus_24" />
 
-    <Button
-        android:id="@+id/btn_result"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginBottom="8dp"
-        android:onClick="checkResult"
-        android:text="@string/btn_check"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button4" />
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginBottom="8dp"
-        android:onClick="clearNumbers"
-        android:text="@string/btn_clear"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/start_stop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onClickStartPause"
-        android:layout_marginStart="5dp"
-        android:layout_marginBottom="8dp"
-        android:text="@string/start_stop"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btn_result" />
-
-    <Button
-        android:id="@+id/reset"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:onClick="onClickReset"
-        android:text="@string/reset"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/start_stop" />
-
     <TextView
         android:id="@+id/time_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="34dp"
-        android:layout_marginBottom="5dp"
-        android:textSize="35sp"
-        android:textColor="@color/textMain"
+        android:layout_marginEnd="44dp"
+        android:layout_marginBottom="45dp"
         android:text=""
-        app:layout_constraintBottom_toTopOf="@+id/reset"
+        android:textColor="@color/textMain"
+        android:textSize="35sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageButton
@@ -339,11 +291,60 @@ tools:context=".Puzzle1">
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:onClick="takeHint"
         android:background="@android:color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/llMain"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/first_puzzle_hint"
         tools:layout_editor_absoluteY="16dp" />
+
+    <ImageButton
+        android:id="@+id/clear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@android:color/transparent"
+        android:onClick="clearNumbers"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/clear_shadow" />
+
+    <ImageButton
+        android:id="@+id/check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@android:color/transparent"
+        android:onClick="checkResult"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/clear"
+        app:srcCompat="@drawable/check_shadow" />
+
+    <ImageButton
+        android:id="@+id/startPause"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@android:color/transparent"
+        android:onClick="onClickStartPause"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/check"
+        app:srcCompat="@drawable/start_pause_shadow" />
+
+    <ImageButton
+        android:id="@+id/resetNew"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@android:color/transparent"
+        android:onClick="onClickReset"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/startPause"
+        app:srcCompat="@drawable/reset_shadow" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

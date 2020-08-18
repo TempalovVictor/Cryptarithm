@@ -21,4 +21,6 @@
 
     <string name="start_stop">Start/Pause</string>
     <string name="reset">Reset</string>
+
+    <string name="five">5</string>
 </resources>

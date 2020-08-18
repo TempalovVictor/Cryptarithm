@@ -4,11 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Random;
 
@@ -18,6 +21,15 @@ public class Puzzle1 extends AppCompatActivity {
     private boolean running;
     private boolean wasRunning;
     private boolean isTimerOn = false;
+    private int count = 0;
+    ArrayList<EditText> emptyList = new ArrayList<>();
+    ArrayList<EditText> startList = new ArrayList<>();
+
+    ImageButton clearIb;
+    ImageButton checkIb;
+    ImageButton startIb;
+    ImageButton resetIb;
+    boolean isPressed = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +68,26 @@ public class Puzzle1 extends AppCompatActivity {
     }
 
     public void onClickStartPause(View view) {
+        startIb = (ImageButton)findViewById(R.id.startPause);
+        startIb.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+
+                    case MotionEvent.ACTION_DOWN:
+                        startIb.setImageResource(R.drawable.start_pause);
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        v.performClick();
+                        startIb.setImageResource(R.drawable.start_pause_shadow);
+                        break;
+                    default:
+                        break;
+                }
+                return true;
+            }
+        });
+
         if (!isTimerOn) {
             running = true;
             isTimerOn = true;
@@ -67,7 +99,28 @@ public class Puzzle1 extends AppCompatActivity {
 
     public void onClickReset(View view) {
         running = false;
+        isTimerOn = false;
         seconds = 0;
+
+        resetIb = (ImageButton)findViewById(R.id.resetNew);
+        resetIb.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+
+                    case MotionEvent.ACTION_DOWN:
+                        resetIb.setImageResource(R.drawable.reset);
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        v.performClick();
+                        resetIb.setImageResource(R.drawable.reset_shadow);
+                        break;
+                    default:
+                        break;
+                }
+                return true;
+            }
+        });
     }
 
     private void runTimer() {
@@ -85,7 +138,7 @@ public class Puzzle1 extends AppCompatActivity {
                 if (running) {
                     seconds++;
                 }
-                handler.postDelayed(this, 1000);
+                handler.postDelayed(this, 0);
             }
         });
     }
@@ -166,6 +219,26 @@ public class Puzzle1 extends AppCompatActivity {
                     wrong, Toast.LENGTH_SHORT);
             toast.show();
         }
+
+        checkIb = (ImageButton)findViewById(R.id.check);
+        checkIb.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+
+                    case MotionEvent.ACTION_DOWN:
+                        checkIb.setImageResource(R.drawable.check);
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        v.performClick();
+                        checkIb.setImageResource(R.drawable.check_shadow);
+                        break;
+                    default:
+                        break;
+                }
+                return true;
+            }
+        });
     }
 
     public void clearNumbers(View view) {
@@ -207,12 +280,81 @@ public class Puzzle1 extends AppCompatActivity {
         et16.setText(null);
         et17.setText(null);
         et18.setText(null);
+
+        clearIb = (ImageButton)findViewById(R.id.clear);
+        clearIb.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+
+                    case MotionEvent.ACTION_DOWN:
+                        clearIb.setImageResource(R.drawable.clear);
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        v.performClick();
+                        clearIb.setImageResource(R.drawable.clear_shadow);
+                        break;
+                    default:
+                        break;
+                }
+                return true;
+            }
+        });
     }
 
     public void takeHint(View view) {
-        Random random = new Random();
-        int a = random.nextInt();
-        int b = random.nextInt();
-        int c = random.nextInt();
+
+        String er1 = "Колличество подсказок закончилось :(";
+        String er2 = "Ошибка. Все поля заполнены!";
+
+        int[] res = {5, 2, 6, 4, 8, 5, 1, 9, 7, 4, 8, 5, 7, 2, 3, 9, 7, 0};
+
+        //ArrayList<EditText> emptyList = new ArrayList<>();
+
+        //ArrayList<EditText> startList = new ArrayList<>();
+        startList.add((EditText) findViewById(R.id.etn1_5));
+        startList.add((EditText) findViewById(R.id.etn2_2));
+        startList.add((EditText) findViewById(R.id.etn3_6));
+        startList.add((EditText) findViewById(R.id.etn4_4));
+        startList.add((EditText) findViewById(R.id.etn5_8));
+        startList.add((EditText) findViewById(R.id.etn6_5));
+        startList.add((EditText) findViewById(R.id.etn7_1));
+        startList.add((EditText) findViewById(R.id.etn8_9));
+        startList.add((EditText) findViewById(R.id.etn9_7));
+        startList.add((EditText) findViewById(R.id.etn10_4));
+        startList.add((EditText) findViewById(R.id.etn11_8));
+        startList.add((EditText) findViewById(R.id.etn12_5));
+        startList.add((EditText) findViewById(R.id.etn13_7));
+        startList.add((EditText) findViewById(R.id.etn14_2));
+        startList.add((EditText) findViewById(R.id.etn15_3));
+        startList.add((EditText) findViewById(R.id.etn16_9));
+        startList.add((EditText) findViewById(R.id.etn17_7));
+        startList.add((EditText) findViewById(R.id.etn18_0));
+
+        if (count <= 2) {
+            for (EditText et : startList) {
+                if (et.getText() == null || et.getText().toString().equals("")) {
+                    emptyList.add(et);
+                }
+            }
+            if (emptyList.isEmpty()) {
+                Toast toast = Toast.makeText(getApplicationContext(),
+                        er2, Toast.LENGTH_SHORT);
+                toast.show();
+            } else {
+                final int min = 0;
+                final int max = 17;
+                final int random = new Random().nextInt((max - min) + 1) + min;
+                if (startList.get(random).getText() == null ||
+                        startList.get(random).getText().toString().equals("")) {
+                    startList.get(random).setText(Integer.toString(res[random]));
+                    count++;
+                }
+            }
+        } else {
+            Toast toast = Toast.makeText(getApplicationContext(),
+                    er1, Toast.LENGTH_SHORT);
+            toast.show();
+        }
     }
 }
